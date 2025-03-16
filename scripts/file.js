@@ -23,5 +23,5 @@ processCustomElements('file', (block) => {
 });
 
 var style = document.createElement('style');
-style.textContent =atob('LmJsb2NrLWZpbGVzIHsKICB3aWR0aDogMTAwJTsKICBoZWlnaHQ6IDUlOwogIGJhY2tncm91bmQtY29sb3I6ICNmNmY2ZjY7Cn0KCi5ibG9jay1maWxlczpob3ZlciB7CiAgYmFja2dyb3VuZC1jb2xvcjogI2VlZTsKfTs=');
+style.textContent =atob('LmJsb2NrLWZpbGVzIHsKICB3aWR0aDogMTAwJTsKICBoZWlnaHQ6IDUlOwogIGJhY2tncm91bmQtY29sb3I6ICNmNmY2ZjY7CiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIGJsYWNrOwogIHBhZGRpbmc6IDElIDElOwp9CgouYmxvY2stZmlsZXM6aG92ZXIgewogIGJhY2tncm91bmQtY29sb3I6ICNlZWU7Cn07');
 document.head.appendChild(style);
