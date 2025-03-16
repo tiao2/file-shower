@@ -12,7 +12,6 @@ processCustomElements('folder', (block) => {
   const el = document.createElement('div');
   el.className = 'block-files';
   el.innerHTML = '<i class="fas fa-folder folder file-icon"></i>'+block.innerHTML;
-  el.appendChild(content);
   return el;
 });
 
