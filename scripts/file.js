@@ -11,7 +11,7 @@ document.head.innerHTML+='<link rel="stylesheet" href="https://cdnjs.cloudflare.
 processCustomElements('folder', (block) => {
   const el = document.createElement('div');
   el.className = 'block-files';
-  el.innerHTML = '<i class="fas fa-folder folder file-icon"></i>'+block.innerHTML;
+  el.innerHTML = '<i class="fas fa-folder folder file-icon"></i>'+"&nbsp;&nbsp;"+block.innerHTML;
   return el;
 });
 
