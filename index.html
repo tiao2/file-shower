@@ -1,0 +1,80 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>文件管理系统</title>
+    <base href="https://tiao2.github.io/file-shower/">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --hover-color: #0056b3;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .path-nav {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+        .path-segment {
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 2px 5px;
+        }
+        .path-segment:hover {
+            text-decoration: underline;
+        }
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .file-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .file-item:hover {
+            transform: translateY(-3px);
+        }
+        .file-actions {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            display: none;
+        }
+        .file-item:hover .file-actions {
+            display: flex;
+            gap: 5px;
+        }
+        .file-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .folder-icon {
+            color: #ffc107;
+        }
+        .file-name {
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="path-nav" id="pathNav">
+        <span class="path-segment" data-path="/">根目录</span>
+    </div>
+    
+    <div class="file-grid" id="fileList"></div>
+
+    <script src="scripts/file.js"></script>
+</body>
+</html>
