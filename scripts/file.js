@@ -1,16 +1,25 @@
-// 改进后的 ruwu 函数
 function ruwu(text) {
-    // 匹配包括哈希和查询参数的完整路径
-    const regex = /(?:https?:\/\/[^/]+)?(\/[^?#]+?)\/files(\/[^?#]*)?/i;
+    // 改进后的正则表达式，支持更复杂的路径和字符
+    const regex = /(?:https?:\/\/)?([\w-]+)\.github\.io\/([\w-]+)\/files(\/.*)?/i;
     const match = text.match(regex);
+
     if (!match) {
-        console.warn("无法解析路径:", text);
-        return "/"; // 默认返回根路径
+        console.warn("路径解析失败，输入内容:", text);
+        return "/"; // 返回安全默认值
     }
-    // 组合基础路径和子路径，并标准化斜杠
-    const basePath = match[1].replace(/\/+/g, '/');
-    const subPath = (match[2] || '').replace(/\/+/g, '/');
-    return `${basePath}${subPath}`.replace(/\/$/, ''); // 移除末尾斜杠
+
+    const username = match[1];   // 提取用户名（如 tiao2）
+    const subpath = match[3] || ""; // 提取子路径（如 /folder）
+
+    try {
+        // 解码可能存在的 URI 编码字符（如 %20 → 空格）
+        const decodedSubpath = decodeURIComponent(subpath);
+        // 组合成标准化路径格式
+        return `${username}${decodedSubpath}`.replace(/\/+/g, '/');
+    } catch (e) {
+        console.error("路径解码失败:", e);
+        return `${username}${subpath}`;
+    }
 }
 
 // 逻辑优化：使用事件委托提高性能
@@ -107,6 +116,7 @@ async function init() {
         processFolderElements();
         processFileElements();
         addCustomStyles();
+        setupClickHandler();
 
         // 确保 iframe 加载完成后绑定事件
         const iframe = document.querySelector('iframe');
