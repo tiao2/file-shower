@@ -1,0 +1,25 @@
+#path {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 5%;
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+#k {
+   position: absolute;
+   top: 5%;
+   left: 0%;
+   height: 95%;
+   width: 10%;
+   background-color: #eee;
+}
+
+#file {
+   position: absolute;
+   top: 4%;
+   left: 9%;
+   height: 97%;
+   width: 91%;
+}
