@@ -2,24 +2,24 @@
     position: absolute;
     top: 0%;
     left: 0%;
-    height: 5%;
+    height: 6%;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: #f6f6f6;
 }
 
 #k {
    position: absolute;
-   top: 5%;
+   top: 6%;
    left: 0%;
-   height: 95%;
+   height: 94%;
    width: 10%;
    background-color: #eee;
 }
 
 #file {
    position: absolute;
-   top: 4%;
-   left: 10%;
-   height: 96%;
-   width: 90%;
+   top: 5%;
+   left: 9%;
+   height: 95%;
+   width: 91%;
 }
