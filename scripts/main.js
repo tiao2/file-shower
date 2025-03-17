@@ -1,13 +1,6 @@
 window.addEventListener("message", receiveMessage);
 
 function receiveMessage(event) {
-    const allowedOrigins = [/https:\/\/tiao2\.github\.io\//];
-
-    if (event.origin.search(allowedOrigins)===-1) {
-        console.warn("Blocked message from untrusted origin:", event.origin);
-        return;
-    }
-
     try {
         if (event.data?.type === "open") {
             const rawPath = event.data.path;
