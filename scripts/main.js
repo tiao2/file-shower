@@ -1,12 +1,9 @@
-window.addEventListener("message", receiveMessage, false);
+window.addEventListener("message", receiveMessage);
 
 function receiveMessage(event) {
-    const allowedOrigins = [
-        "https://tiao2.github.io",
-        "http://localhost"
-    ];
+    const allowedOrigins = [/https:\/\/tiao2\.github\.io\//];
 
-    if (!allowedOrigins.includes(event.origin)) {
+    if (event.search(originallowedOrigins)===-1) {
         console.warn("Blocked message from untrusted origin:", event.origin);
         return;
     }
