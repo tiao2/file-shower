@@ -1,32 +1,29 @@
-/* 使用 Flex 布局替代绝对定位 */
-body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
 #path {
-    height: 6vh;
-    background: #f6f6f6;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 6%;
+    width: 100%;
+    background-color: #f6f6f6;
 }
 
 #sidebar {
-    width: 10vw;
-    background: #eeeeee;
-    flex-shrink: 0;
+   position: absolute;
+   top: 6%;
+   left: 0%;
+   height: 94%;
+   width: 10%;
+   background-color: #eee;
 }
 
 #fileViewer {
-    flex: 1;
-    border: none;
+   position: absolute;
+   top: 5%;
+   left: 9%;
+   height: 95%;
+   width: 91%;
 }
 
-/* 按钮样式优化 */
 .path-button {
     background: none;
     border: none;
