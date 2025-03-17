@@ -56,8 +56,8 @@ function handleClick(part) {
 
 function updateFileViewer(path) {
     const iframe = document.getElementById("fileViewer");
-    if(path.substr(0,5)=='tiao2'){
-        path=path.substr(5, path.length);
+    if(path.substr(0,6)=='tiao2/'){
+        path=path.substr(6, path.length);
     }
     iframe.src = `files/${encodeURIComponent(path)}`;
 }
