@@ -25,3 +25,11 @@ processCustomElements('file', (block) => {
 var style = document.createElement('style');
 style.textContent =atob('LmJsb2NrLWZpbGVzIHsKICB3aWR0aDogMTAwJTsKICBoZWlnaHQ6IDUlOwogIGJhY2tncm91bmQtY29sb3I6ICNmNmY2ZjY7CiAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIGJsYWNrOwogIHBhZGRpbmc6IDElIDElOwp9CgouYmxvY2stZmlsZXM6aG92ZXIgewogIGJhY2tncm91bmQtY29sb3I6ICNlZWU7Cn07');
 document.head.appendChild(style);
+
+document.addEventListener('click', function(event) {
+  const clickedElement = event.target.closest('.file, .folder');
+  if (clickedElement) {
+    const text = clickedElement.innerText;
+    
+  }
+});
