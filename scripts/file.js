@@ -61,7 +61,7 @@ function addCustomStyles() {
 // 处理点击事件
 function setupClickHandler() {
   document.addEventListener('click', (event) => {
-    const clickedElement = event.target.closest('.file, .folder');
+    const clickedElement = event.target.closest('.block-files');
     if (clickedElement) {
       const text = clickedElement.innerText.trim();
       if (text) {
