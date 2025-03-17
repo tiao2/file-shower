@@ -24,7 +24,7 @@ function setupClickHandler() {
             const path = ruwu(text);
             window.parent.postMessage({ // 明确指定父窗口
                 type: "open",
-                path: path
+                path: encodeURIComponent(path)
             }, window.origin); // 使用标准 origin
         }
     });
