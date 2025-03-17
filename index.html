@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="zh-CN"> <!-- 添加语言声明 -->
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 响应式支持 -->
     <title>文件展示系统</title>
-    <link rel="stylesheet" href="styles/show.css"/>
+    <link rel="stylesheet" href="styles/show.css">
 </head>
 <body>
-    <div id="path"></div>
-    <div id="k"></div>
-    <iframe id="file" frameborder="none" src="files"></iframe>
-    <script src="scripts/main.js"></script>
+    <div id="path" aria-label="当前路径"></div> <!-- 增强可访问性 -->
+    <div id="sidebar"></div> <!-- 语义化重命名 #k 为 #sidebar -->
+    <iframe 
+        id="fileViewer" 
+        title="文件内容视图" 
+        src="files"
+        loading="lazy" <!-- 延迟加载优化 -->
+    ></iframe>
+    <script src="scripts/main.js" defer></script> <!-- 使用 defer 确保 DOM 加载后执行 -->
 </body>
 </html>
