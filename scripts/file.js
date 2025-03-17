@@ -1,8 +1,16 @@
-// 功能修复：优化路径处理正则
+// 改进后的 ruwu 函数
 function ruwu(text) {
-    // 匹配更严谨的路径格式（示例）
-    const regex = /https?:\/\/([\w-]+)\.github\.io\/[^/]+\/files/gi;
-    return text.replace(regex, '$1');
+    // 匹配包括哈希和查询参数的完整路径
+    const regex = /(?:https?:\/\/[^/]+)?(\/[^?#]+?)\/files(\/[^?#]*)?/i;
+    const match = text.match(regex);
+    if (!match) {
+        console.warn("无法解析路径:", text);
+        return "/"; // 默认返回根路径
+    }
+    // 组合基础路径和子路径，并标准化斜杠
+    const basePath = match[1].replace(/\/+/g, '/');
+    const subPath = (match[2] || '').replace(/\/+/g, '/');
+    return `${basePath}${subPath}`;
 }
 
 // 逻辑优化：使用事件委托提高性能
