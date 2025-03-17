@@ -32,11 +32,23 @@ document.addEventListener('click', function(event) {
     const text = clickedElement.innerText;
     window.postMessage({
       type: "open",
-      path: ruwu(text)
-   }, "/");
+      path: ruwu(location.href+text)
+   }, origin());
 });
 
 function ruwu(text) {
   const regex = /https:\/\/(\w+)\.github\.io\/.*?\/files/g;
   return text.replace(regex, '$1');
+}
+
+function origin(){
+  const currentUrl = new URL(window.location.href);
+  const pathname = currentUrl.pathname;
+  const filesIndex = pathname.toLowerCase().indexOf('/files');
+  if (filesIndex !== -1) {
+    const basePath = pathname.substring(0, filesIndex);
+    currentUrl.pathname = basePath.endsWith('/') ? basePath : basePath + '/';
+    const baseUrl = currentUrl.toString();
+    return baseUrl;
+  }
 }
