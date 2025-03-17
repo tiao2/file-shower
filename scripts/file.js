@@ -30,6 +30,13 @@ document.addEventListener('click', function(event) {
   const clickedElement = event.target.closest('.file, .folder');
   if (clickedElement) {
     const text = clickedElement.innerText;
-    
-  }
+    window.postMessage({
+      type: "open",
+      path: ruwu(text)
+   }, "/");
 });
+
+function ruwu(text) {
+  const regex = /https:\/\/(\w+)\.github\.io\/.*?\/files/g;
+  return text.replace(regex, '$1');
+}
