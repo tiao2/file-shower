@@ -29,15 +29,19 @@ function receiveMessage(event) {
 function processPath(path) {
     const fragment = document.createDocumentFragment();
     const separator = document.createTextNode(" / ");
-
+    var a=1;
     path.split("/").forEach((part, index) => {
         if (index > 0) fragment.appendChild(separator.cloneNode());
-        
         const button = document.createElement("button");
         button.textContent = part || "/"; // 处理空路径段
         button.className = "path-button";
-        button.addEventListener("click", () => handleClick(part));
+        var pt="";
+        for(var b=0;b<a;b++){
+            pt+=path.split("/")[b]+"/";
+        };
+        button.addEventListener("click", () => handleClick(pt));
         fragment.appendChild(button);
+        a++;
     });
 
     const container = document.getElementById("path");
@@ -52,5 +56,8 @@ function handleClick(part) {
 
 function updateFileViewer(path) {
     const iframe = document.getElementById("fileViewer");
+    if(path.substr(0,5)=='tiao2'){
+        path=path.substr(5, path.length);
+    }
     iframe.src = `files/${encodeURIComponent(path)}`;
 }
