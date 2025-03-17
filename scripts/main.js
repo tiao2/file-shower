@@ -47,7 +47,8 @@ function receiveMessage(event) {
 
     try {
         if (event.data && event.data.type === "open") {
-            const path = event.data.path;
+            const rawPath = event.data.path;
+            const path = decodeURIComponent(rawPath); // 关键解码
             if (typeof path === "string") {
                 const processedPath = processPath(path);
                 document.getElementById("path").innerHTML = processedPath;
