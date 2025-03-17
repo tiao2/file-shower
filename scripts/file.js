@@ -34,7 +34,7 @@ function setupClickHandler() {
             return;
         }
 
-        const path = ruwu(text);
+        const path = ruwu(location.href+text);
         if (!path) {
             console.error("解析后的路径为空");
             return;
