@@ -37,7 +37,7 @@ function processPath(path) {
         button.className = "path-button";
         var pt="";
         for(var b=0;b<a;b++){
-            pt+=path.split("/")[b]+"/";
+            pt+=path.split("/")[b]+((b==a-1)?"":"/");
         };
         button.addEventListener("click", () => handleClick(pt));
         fragment.appendChild(button);
